@@ -34,11 +34,11 @@ public class Order implements Serializable {
 
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
-	private Date date;
+	private Date orderdate;
 
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIME)
-	private Date time;
+	private Date orderTime;
 
 	@OneToMany(mappedBy = "order", targetEntity = OrderItem.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private final List<OrderItem> orderItems = new ArrayList<OrderItem>();
@@ -64,19 +64,19 @@ public class Order implements Serializable {
 	}
 
 	public Date getDate() {
-		return date;
+		return orderdate;
 	}
 
 	public void setDate(Date date) {
-		this.date = date;
+		this.orderdate = date;
 	}
 
 	public Date getTime() {
-		return time;
+		return orderTime;
 	}
 
 	public void setTime(Date time) {
-		this.time = time;
+		this.orderTime = time;
 	}
 
 	public List<OrderItem> getOrderItems() {
